@@ -1,7 +1,7 @@
 "use strict";
 // 1 - Primitive: String, number, boolean, undefined, null
 const string = "Hello I'm a string";
-const number = 4;
+// const number: number = 4
 let undefinedVariable = undefined;
 let nullVariable = null;
 // 2 - Compound: Object, array, enum, function
@@ -21,6 +21,7 @@ var weekDays;
     weekDays[weekDays["Saturday"] = 5] = "Saturday";
     weekDays[weekDays["Sunday"] = 6] = "Sunday";
 })(weekDays || (weekDays = {}));
+// Function
 function add(a, b) {
     return a + b;
 }
@@ -33,4 +34,15 @@ function greeting(name, age) {
         return `Hello, my name is ${name}`;
     }
 }
+function greeting2(name, age = 30) {
+    return `Hello, my name is ${name} and I have ${age} years old`;
+}
 // 3 - User defined: Class, interface, type
+class Person {
+    constructor(name) {
+        this.name = name;
+    }
+    greeting() {
+        console.log(`Hello, my name is ${name}`);
+    }
+}

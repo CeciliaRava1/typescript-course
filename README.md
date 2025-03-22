@@ -5,6 +5,13 @@ Install tsc
 npm install -g typescript
 tsc -version
 
+Anoher option to install tsc
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
+source ~/.bashrc
+nvm install --lts
+npm install -g typescript
+
+
 Init tsc project
 tsc -init
 
