@@ -55,10 +55,56 @@ class Person {
     }
 }
 
+
+class Movie {
+    // Initialize or ?
+    name: string = 'Default name'
+    protagonist?: string[]
+    actors?: string[]
+
+    projectOnCinema() {
+        console.log(`${this.name} is being projected`)
+    }
+
+    constructor(name: string, protagonist: string[], actors: string[]) {
+        this.name = name,
+        this.protagonist = protagonist,
+        this.actors = actors
+    }
+}
+
+const movie = new Movie('Barbie', ['Barbie', 'Ken'], ['Margot Robbie', 'Ryan Gosling'])
+const movie1 = new Movie('Oppenheimer', ['Oppenheimer', 'Strauss'], ['Cillian Murphy', 'Robert Downey Jr.'])
+
+
+class Draw<T> {
+    // Idk data type
+    private ticket?: T
+
+    constructor(private name: string) {}
+
+    setTicket(ticket:T) {
+        this.ticket = ticket
+    }
+
+    getTicket() {
+        return this.ticket
+    }
+
+    public draw(): string {
+        return `For ${this.name} the ticket is ${this.ticket}`
+    }
+}
+
+let draw = new Draw<number>('Marcos')
+draw.setTicket(7)
+console.log(draw.draw())
+
+
 // Interface
 interface Product {
-    name: string
-    price: number
+    name: string,
+    price: number,
     description?: string
 }
 
@@ -67,16 +113,29 @@ interface Comparator {
 }
 
 interface Person {
-    name: string
-    age: number
+    name: string,
+    age: number,
     greeting(): void
 }
 
+interface Programmer {
+    name: string,
+    technologies: string[],
+    drinkMate?: boolean | null
+}
+
+let programmer: Programmer = {
+    name: 'Sergie Code',
+    technologies: ['python'],
+    drinkMate: true
+}
+
+// Type
 type Num = number
 
 type Person1 = {
-    name: string
-    age: number
+    name: string,
+    age: number,
     description?: string
 }
 
@@ -87,7 +146,7 @@ type Comparator1 = {
 }
 
 type Person2 = {
-    name: string
-    age: number
+    name: string,
+    age: number,
     greeting(): void
 }

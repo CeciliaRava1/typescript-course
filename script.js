@@ -1,6 +1,5 @@
-"use strict";
-let interMiami = 11;
-let fcDallas = 11;
+var interMiami = 11;
+var fcDallas = 11;
 function play(teamOne, teamTwo) {
     if (teamOne > teamTwo)
         console.log("Inter Miami won!");

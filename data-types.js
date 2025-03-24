@@ -1,16 +1,15 @@
-"use strict";
 // 1 - Primitive: String, number, boolean, undefined, null
-const string = "Hello I'm a string";
+var string = "Hello I'm a string";
 // const number: number = 4
-let undefinedVariable = undefined;
-let nullVariable = null;
+var undefinedVariable = undefined;
+var nullVariable = null;
 // 2 - Compound: Object, array, enum, function
-const person = {
+var person = {
     Name: 'Gustavo',
     Age: 30,
     Courses: ['python', 'css']
 };
-const array = [1, 2, 3];
+var array = [1, 2, 3];
 var weekDays;
 (function (weekDays) {
     weekDays[weekDays["Monday"] = 0] = "Monday";
@@ -25,24 +24,64 @@ var weekDays;
 function add(a, b) {
     return a + b;
 }
-const divide = (a, b) => a / b; // Inferred return
+var divide = function (a, b) { return a / b; }; // Inferred return
 function greeting(name, age) {
     if (age !== undefined) {
-        return `Hello, my name is ${name} and I have ${age} years old`;
+        return "Hello, my name is ".concat(name, " and I have ").concat(age, " years old");
     }
     else {
-        return `Hello, my name is ${name}`;
+        return "Hello, my name is ".concat(name);
     }
 }
-function greeting2(name, age = 30) {
-    return `Hello, my name is ${name} and I have ${age} years old`;
+function greeting2(name, age) {
+    if (age === void 0) { age = 30; }
+    return "Hello, my name is ".concat(name, " and I have ").concat(age, " years old");
 }
 // 3 - User defined: Class, interface, type
-class Person {
-    constructor(name) {
+var Person = /** @class */ (function () {
+    function Person(name) {
         this.name = name;
     }
-    greeting() {
-        console.log(`Hello, my name is ${name}`);
+    Person.prototype.greeting = function () {
+        console.log("Hello, my name is ".concat(name));
+    };
+    return Person;
+}());
+var Movie = /** @class */ (function () {
+    function Movie(name, protagonist, actors) {
+        // Initialize or ?
+        this.name = 'Default name';
+        this.name = name,
+            this.protagonist = protagonist,
+            this.actors = actors;
     }
-}
+    Movie.prototype.projectOnCinema = function () {
+        console.log("".concat(this.name, " is being projected"));
+    };
+    return Movie;
+}());
+var movie = new Movie('Barbie', ['Barbie', 'Ken'], ['Margot Robbie', 'Ryan Gosling']);
+var movie1 = new Movie('Oppenheimer', ['Oppenheimer', 'Strauss'], ['Cillian Murphy', 'Robert Downey Jr.']);
+var Draw = /** @class */ (function () {
+    function Draw(name) {
+        this.name = name;
+    }
+    Draw.prototype.setTicket = function (ticket) {
+        this.ticket = ticket;
+    };
+    Draw.prototype.getTicket = function () {
+        return this.ticket;
+    };
+    Draw.prototype.draw = function () {
+        return "For ".concat(this.name, " the ticket is ").concat(this.ticket);
+    };
+    return Draw;
+}());
+var draw = new Draw('Marcos');
+draw.setTicket(7);
+console.log(draw.draw());
+var programmer = {
+    name: 'Sergie Code',
+    technologies: ['python'],
+    drinkMate: true
+};
